@@ -1,0 +1,206 @@
+/* style.css */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f3f3;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  gap: 5px;
+}
+
+/* Painel esquerdo */
+.left-panel {
+  flex: 2;
+  padding: 30px;
+  background-color: #f3f3f3;
+  border-right: 2px solid #ddd;
+}
+
+.word-title {
+  font-size: 2.5rem;
+  color: #d32f2f;
+  margin-bottom: 20px;
+}
+
+.phrase-block {
+  margin-bottom: 20px;
+}
+
+.phrase-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.phrase {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.phrase input {
+  flex: 1;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+/* Botões agrupados à direita */
+.bottons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* .play-button,
+.menu-button {
+  background-color: #9c1414;
+  color: rgb(91, 63, 214);
+  padding: 5px 12px;
+  font-size: 1rem;
+  border-radius: 0%;
+  cursor: pointer;
+} 
+.play-button {
+  background-color: #a8a8aa;
+  color: #141414;
+  font-size: 1rem;
+  border: rgb(0, 0, 0);
+  border-radius: 100%;
+ 
+} */
+
+.play-button,
+.menu-toggle {
+  background-color: #4596f1;
+  color: #e9e8e8;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.play-button:hover,
+.menu-toggle:hover {
+  background-color: #e9e8e8;
+  color: #4596f1;
+}
+
+/* .player {
+  max-width: 300px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border: 2px solid #6d6d70;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  outline: none;
+  transition: border-color 0.3s ease;
+} */
+
+/* .player:hover {
+  border-color: #4596f1;
+} */
+
+.player {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 6px #4596f1;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.player:hover {
+  box-shadow: 0 2px 6px #000c1a;
+} 
+
+/* link adicionar frases */
+.add_phrases {
+  margin-top: 30px;
+  text-align: center;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  /* z-index: 1000; flutuar na tela */
+}
+
+.add_phrases a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0077cc;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add_phrases a:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+}
+
+
+/* Painel à direita */
+.right-panel {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-left: 5px solid #33a5e7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Título */
+.explanation h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Label e textarea */
+.explanation label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.explanation textarea {
+  width: 100%;
+  height: 400px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  box-sizing: border-box;
+  background-color: #95b1c4;
+  color: #4e4b4b;
+  transition: border-color 0.3s ease;
+}
+
+.explanation textarea:focus {
+  border-color: #4d4d4d;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}

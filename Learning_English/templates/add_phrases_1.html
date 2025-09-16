@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar Frases - Estudo de Inglês</title>
+  {% load static %}
+  <!-- <link rel="stylesheet" href="{% static 'styles_add_phrases.css' %}"> -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .top-bar {
+        margin-bottom: 20px;
+      }
+
+      .top-bar a {
+        background-color: #cc0000;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+
+      .main-panel {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+      }
+
+      .input-panel,
+      .saved-panel {
+        flex: 1;
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+
+      h2 {
+        margin-top: 0;
+      }
+
+      label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .save-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #0077cc;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .save-button:hover {
+        background-color: #005fa3;
+      }
+
+      .alert {
+        background-color: #dff0d8;
+        color: #3c763d;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #d6e9c6;
+        border-radius: 6px;
+      }
+
+      .saved-list li {
+        margin-bottom: 15px;
+        padding: 10px;
+        background-color: #f4f4f4;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .word-type {
+        margin-top: 15px;
+      }
+
+      .word-type label {
+        margin-right: 15px;
+      }
+    </style>
+</head>
+
+<body>
+  <!-- botao home -->
+  <div class="home">
+    <a href="{% url 'home' %}">HOME</a>
+  </div>
+  <div class="container">
+    <!-- Mensagens de feedback -->
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <!-- Painel de entrada -->
+    <section class="input-panel">
+        <h2>Adicionar Frase</h2>
+        <form method="post" action="{% url 'add_phrase' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="word-type">
+            <label for="{{ form.type.id_for_label }}">Classificação:</label>
+            {{ form.type }}
+          </div>
+
+          <label for="{{ form.word.id_for_label }}">Digite aqui a palavra:</label>
+          {{ form.word }}
+
+          <label for="{{ form.phrase.id_for_label }}">Digite aqui sua frase:</label>
+          {{ form.phrase }}
+
+          <label for="{{ form.explanation.id_for_label }}">Cole aqui as explicações detalhadas:</label>
+          {{ form.explanation }}
+
+          <button type="submit" class="save-button">Salvar</button>
+        </form>
+      </section>
+
+
+    <!-- Painel de frases salvas -->
+    <section class="saved-panel">
+      <h2>FRASES SALVAS</h2>
+      <ul class="saved-list">
+        {% for frase in lastet_phrases %}
+          <li>
+            <strong>{{ frase.phrase }}</strong><br>
+            <em>{{ frase.word.word }} ({{ frase.word.get_type_display }})</em><br>
+            <small>{{ frase.explanation | truncatewords:20 }}</small>
+          </li>
+          {% empty %}
+            <li>Nenhuma frase adicionada.</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

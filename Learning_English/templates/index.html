@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudo de Inglês</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+  <div class="container">
+    <!-- Área esquerda -->
+    <section class="left-panel">
+      <h1 class="word-title">PHRASES</h1>
+
+      <!-- Frase 1 -->
+      <div class="phrase-block">
+        <p class="phrase-label">Phrase 1:</p>
+        <div class="phrase">
+          <input type="text" id="phrase1" name="phrase1" placeholder="Digite a frase para ouvir">
+          <div class="bottons">
+            <button class="play-button" id="playPauseBtn1" type="button" onclick="playAudio('phrase1', 'audioPlayer1')" title="Carregar áudio">&#9835;</button>
+            <audio id="audioPlayer1" class="player" controls></audio>
+            <button class="menu-toggle" title="Mostrar explicações">☰</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frase 2 -->
+      <div class="phrase-block">
+        <p class="phrase-label">Phrase 2:</p>
+        <div class="phrase">
+          <input type="text" id="phrase2" name="phrase2" title="Digite a frase para ouvir" placeholder="Digite a frase para ouvir">
+          <div class="bottons">
+            <button class="play-button" id="playPauseBtn2"  type="button" onclick="playAudio('phrase2', 'audioPlayer2')" title="Carregar áudio">&#9835;</button>
+            <audio id="audioPlayer2" class="player" controls></audio>
+            <button class="menu-toggle" title="Mostrar explicações">☰</button>
+          </div>
+        </div>
+      </div>
+      <!-- Link para pagina de adicionar frases -->
+       <div class="add_phrases">
+        <a href="{% url 'add_word_phrases' %}">Adicionar Frases</a>
+       </div>
+    </section>
+
+    <!-- Área direita -->
+    <section class="right-panel">
+      <div class="explanation">
+        <h2>Análise da frase</h2>
+        <label>
+          <textarea name="text-block" id="text-block-el">📘 Frase: "He brought me a shiny red apple"
+Essa frase descreve uma ação de entrega ou oferta, com detalhes visuais que ajudam a criar uma imagem clara da maçã. Vamos analisar cada elemento da frase para entender o significado no contexto e explorar outros usos possíveis.
+
+👨‍🦱 He
+Na frase: He brought me...
+
+Sentido: Pronome pessoal masculino, usado como sujeito da frase. Refere-se à pessoa que realizou a ação.
+
+Outros contextos:
+
+He is my brother. → identificação.
+
+He works in finance. → rotina profissional.
+
+📦 brought
+Na frase: He brought me...
+
+Sentido: Verbo no passado de bring, que significa trazer algo para alguém.
+
+Expressões úteis:
+
+Bring me the book. → pedido direto.
+
+She brought snacks to the party. → ação de levar algo para um evento.
+
+Outros sentidos:
+
+Bring up a topic. → iniciar uma conversa sobre algo. He brought up politics during dinner.
+
+Bring down the mood. → diminuir o entusiasmo. That news really brought me down.
+
+🙋‍♂️ me
+Na frase: ...brought me...
+
+Sentido: Pronome objeto, indica que a ação foi feita para mim.
+
+Outros contextos:
+
+Give me a minute. → expressão comum para pedir tempo.
+
+Tell me the truth. → usado para receber informação.
+
+✨ shiny
+Na frase: ...a shiny red apple
+
+Sentido: Adjetivo que significa brilhante ou reluzente, descrevendo a aparência da maçã.
+
+Outros contextos:
+
+Shiny shoes. → sapatos polidos.
+
+Shiny hair. → cabelo com brilho saudável.
+
+Figurado:
+
+Shiny new toy. → pode indicar algo novo e atraente, às vezes com tom irônico.
+
+🔴 red
+Na frase: ...a shiny red apple
+
+Sentido: Adjetivo que indica a cor da maçã.
+
+Outros contextos:
+
+Red flag. → expressão para alerta ou sinal de problema. That behavior was a red flag.
+
+Red carpet. → evento especial ou glamouroso.
+
+🍎 apple
+Na frase: ...a shiny red apple
+
+Sentido: Substantivo concreto, refere-se à fruta física.
+
+Outros contextos:
+
+Apple pie. → sobremesa tradicional.
+
+Apple of my eye. → expressão idiomática para alguém muito querido.
+
+🔍 Resumo da frase completa:
+"He brought me a shiny red apple" Descreve uma ação gentil ou prática: um homem trouxe uma maçã com aparência atraente (shiny red). A frase combina ação (brought) com descrição visual (shiny, red) e relação interpessoal (me). É comum em contextos de narrativa, cotidiano ou até em histórias infantis.
+          </textarea>
+        </label>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    async function playAudio(inputId, audioId) {
+    const phrase = document.getElementById(inputId).value.trim();
+    const audio = document.getElementById(audioId);
+
+    if (!phrase) {
+      alert("Digite uma frase antes de tocar o áudio.");
+      return;
+    }
+
+    try {
+      const response = await fetch(`/tts?phrase=${encodeURIComponent(phrase)}`);
+      if (!response.ok) {
+        throw new Error("Erro ao gerar áudio");
+      }
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      audio.src = url;
+      audio.play();
+    } catch (error) {
+      console.error(error);
+      alert("Não foi possível gerar o áudio.");
+    }
+  }
+  
+
+    function toggleAudio(audio, btn) {
+      if (audio.paused || audio.ended) {
+        audio.play();
+        btn.textContent = "⏸";
+      } else {
+        audio.pause();
+        btn.textContent = "▶";
+      }
+
+      audio.onended = () => {
+        btn.textContent = "▶";
+      };
+
+      audio.onpause = () => {
+        btn.textContent = "▶";
+      };
+    }
+
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+</script>
+
+
+</body>
+</html>

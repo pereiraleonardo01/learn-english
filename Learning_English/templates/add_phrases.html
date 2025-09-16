@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar Frases - Estudo de Inglês</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'styles_add_phrases.css' %}">
+</head>
+<body>
+  <!-- ALERTA NO TOPO -->
+  {% if messages %}
+  <div class="alert-container">
+    {% for message in messages %}
+    <div class="alert">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- botao home -->
+  <div class="home">
+    <a href="{% url 'home' %}">HOME</a>
+  </div>
+  <div class="container">
+    <!-- Painel de entrada -->
+    <section class="input-panel">
+      <h2>Adicionar Frase</h2>
+      <form class="phrase-form" action="{% url 'add_word_phrases' %}" method="post">
+        {% csrf_token %}
+        <div class="word-type">
+          <span>Classificação:</span>
+          <input type="radio" id="substantivo" name="type" value="substantivo">
+          <label for="substantivo" class="radio-button">Substantivo</label>
+
+          <input type="radio" id="verbo" name="type" value="verbo">
+          <label for="verbo" class="radio-button">Verbo</label>
+
+          <input type="radio" id="adjetivo" name="type" value="adjetivo">
+          <label for="adjetivo" class="radio-button">Adjetivo</label>
+        </div>
+
+        <label for="word">Digite aqui a palavra:</label>
+        <input type="text" id="word" name="word" placeholder="Palavra-chave">
+
+        <label for="sentence">Digite aqui sua frase:</label>
+        <input type="text" id="sentence" name="phrase" placeholder="Frase completa">
+
+        <label for="explanation">Cole aqui as explicações detalhadas:</label>
+        <textarea id="explanation" name="explanation" rows="6" placeholder="Explicações sobre a frase..."></textarea>
+
+        <button type="submit" name="submit" class="save-button">Salvar</button>
+      </form>
+    </section>
+
+    <!-- Painel de frases salvas -->
+    <section class="saved-panel">
+      <h2>FRASES SALVAS</h2>
+      <ul class="saved-list">
+        {% for frase in latest_phrases %}
+        
+          <li>
+            <strong>{{ frase.phrase }}</strong><br>
+            <em>{{ frase.word.word }} ({{ frase.word.get_type_display }})</em><br>
+            <small>{{ frase.explanation | truncatewords:20 }}</small>
+          </li>
+          {% empty %}
+            <li>Nenhuma frase adicionada.</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
