@@ -58,11 +58,13 @@
       <ul class="saved-list">
         {% for frase in latest_phrases %}
         
-          <li>
-            <strong>{{ frase.phrase }}</strong><br>
-            <em>{{ frase.word.word }} ({{ frase.word.get_type_display }})</em><br>
-            <small>{{ frase.explanation | truncatewords:20 }}</small>
-          </li>
+          <a href="{% url 'home' %}">
+            <li>
+              <strong>{{ frase.phrase }}</strong><br>
+              <em>{{ frase.word.word }} ({{ frase.word.get_type_display }})</em><br>
+              <small>{{ frase.explanation | truncatewords:20 }}</small>
+            </li>
+          </a>
           {% empty %}
             <li>Nenhuma frase adicionada.</li>
         {% endfor %}
