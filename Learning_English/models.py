@@ -23,7 +23,7 @@ class Phrase(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.word.word)
+            self.slug = slugify(f"{self.phrase}")
         super().save(*args, **kwargs)
 
     def __str__(self):

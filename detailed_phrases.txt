@@ -1,0 +1,22 @@
+Sistema de links:
+1 - mandar para a pag que vai renderizar...
+2 - slug = que é a frase
+3 - id da frase
+
+ex: path('<word:Word.word>/<slug:slug>/<int:phrase_id>/',
+         detailed_phrase, name='detailed_phrase'),
+
+Criar uma função na views que pegue o id, e o slug,
+posso usar a função do Django "get_object_or_404()"
+passo como argumento a classe Phrase, id e slug.
+e retorna um context = {
+		    detailed: detailed	
+		}
+
+No Html:
+detailed.html = 
+
+	detailed.phrase
+	detailed.word
+	detailed.explanation
+

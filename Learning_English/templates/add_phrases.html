@@ -58,7 +58,7 @@
       <ul class="saved-list">
         {% for frase in latest_phrases %}
         
-          <a href="{% url 'home' %}">
+            <a href="{% url 'detailed_phrase' word=frase.word.word slug=frase.slug phrase_id=frase.id %}">
             <li>
               <strong>{{ frase.phrase }}</strong><br>
               <em>{{ frase.word.word }} ({{ frase.word.get_type_display }})</em><br>

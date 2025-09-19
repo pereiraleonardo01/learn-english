@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse, FileResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
@@ -105,15 +105,26 @@ def add_word_phrases(request):
                 word=word_obj,
                 phrase=phrase,
                 explanation=explanation,
-                slug=slugify(f"{word}-{phrase[:20]}")
+                slug=slugify(f"{phrase}")
             )
 
             messages.success(request, 'Frase adicionada com sucesso!')
             return redirect('add_word_phrases')
 
     # Frases salvas para exibir na página
-    latest_phrases = Phrase.objects.order_by('-id')[:3]
+    latest_phrases = Phrase.objects.order_by('-id')[:5]
 
     return render(request, 'add_phrases.html', {
         'latest_phrases': latest_phrases
     })
+
+
+def detailed_phrase(request, word, phrase_id, slug):
+    word_obj = get_object_or_404(Word,  word=word)
+    detailed = get_object_or_404(
+        Phrase, id=phrase_id, slug=slug, word=word_obj)
+    context = {
+        "detailed": detailed
+    }
+
+    return render(request, 'detailed.html', context)
