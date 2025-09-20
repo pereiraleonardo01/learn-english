@@ -3,5 +3,5 @@ services:
     name: 300-simple-words
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn 300_simple_words.wsgi
+    startCommand: gunicorn English_School.wsgi
     autoDeploy: true

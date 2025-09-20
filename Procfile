@@ -1,1 +1,1 @@
-web: gunicorn 300_simple_words.wsgi
+web: gunicorn English_School.wsgi
