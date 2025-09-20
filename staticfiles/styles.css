@@ -1,0 +1,341 @@
+/* Base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f3f3;
+}
+
+a {
+  text-decoration: none;
+}
+
+strong {
+  font-size: 1.3rem;
+}
+
+/* Botão de voltar */
+.home {
+  position: fixed;
+  margin: 15px 0 15px 40px;
+}
+
+.home a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d32f2f;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home a:hover {
+  background-color: #a71414;
+  transform: translateY(-2px);
+}
+
+/* Layout principal */
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  gap: 5px;
+}
+
+/* Painel esquerdo */
+.left-panel {
+  flex: 2;
+  padding: 30px;
+  background-color: #f3f3f3;
+  border-right: 2px solid #ddd;
+}
+
+.word-title,
+.word-title_detailed {
+  color: #d32f2f;
+  margin-bottom: 20px;
+}
+
+.word-title {
+  font-size: 2.5rem;
+}
+
+.word-title_detailed {
+  font-size: 2rem;
+  margin-top: 35px;
+}
+
+.phrase-block {
+  margin-bottom: 20px;
+}
+
+.phrase-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.phrase {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #4596f1;
+}
+
+.phrase h3 {
+  color: #4596f1;
+  transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.phrase h3:hover {
+  color: #1f4d83;
+  transform: translateY(-2px);
+}
+
+.phrase input {
+  flex: 1;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+/* Botões de ação */
+.bottons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.play-button,
+.menu-toggle {
+  background-color: #4596f1;
+  color: #e9e8e8;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.play-button:hover,
+.menu-toggle:hover {
+  background-color: #e9e8e8;
+  color: #4596f1;
+}
+
+/* Player de áudio */
+.player {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 6px #4596f1;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.player:hover {
+  box-shadow: 0 2px 6px #000c1a;
+}
+
+/* Link para adicionar frases */
+.add_phrases {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.add_phrases a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0077cc;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add_phrases a:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+}
+
+/* Painel à direita */
+.right-panel {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-left: 5px solid #33a5e7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Título da explicação */
+.explanation h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Label e caixa de texto */
+.explanation label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.text-box {
+  width: 100%;
+  height: 450px;
+  padding: 20px 25px;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-indent: 25px;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #95b1c4b7;
+  color: #333;
+  box-sizing: border-box;
+}
+
+/* Textarea estilizado */
+.explanation textarea {
+  width: 100%;
+  height: 400px;
+  padding: 30px;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #4e4b4b;
+  background-color: #95b1c4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.explanation textarea:focus {
+  border-color: #4d4d4d;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Tablets (até 1024px) */
+@media (max-width: 1024px) {
+  /* Botão de voltar */
+  .home {
+    position: static;
+    margin: 15px 0 15px 40px;
+  }
+  
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 90%;
+    padding: 20px;
+    border: none;
+    box-shadow: none;
+  }
+
+  .word-title {
+    font-size: 2rem;
+  }
+
+  .word-title_detailed {
+    font-size: 1.6rem;
+  }
+
+  .add_phrases {
+    position: static;
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+  /* Botão de voltar */
+  .home {
+    position: static;
+    margin: 15px 0 15px 40px;
+  }
+  
+  .container {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .left-panel,
+  .right-panel {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .word-title {
+    font-size: 1.8rem;
+  }
+
+  .word-title_detailed {
+    font-size: 1.4rem;
+  }
+
+  .phrase {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .phrase input {
+    width: 100%;
+  }
+
+  .bottons {
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .player {
+    width: 200px;
+    height: 40px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .add_phrases a {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .explanation h2 {
+    font-size: 1.5rem;
+  }
+
+  .text-box,
+  .explanation textarea {
+    height: auto;
+    min-height: 300px;
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+}
