@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: 300-simple-words
+    name: English_School
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn English_School.wsgi
