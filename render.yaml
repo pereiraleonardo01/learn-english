@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: 300-simple-words
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn 300_simple_words.wsgi
+    autoDeploy: true
