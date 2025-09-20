@@ -3,5 +3,7 @@ services:
     name: English_School
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn English_School.wsgi
+    startCommand: |
+      python manage.py migrate &&
+      gunicorn English_School.wsgi
     autoDeploy: true
