@@ -47,6 +47,7 @@ strong {
 /* Painel esquerdo */
 .left-panel {
   flex: 2;
+  width: 85%;
   padding: 30px;
   background-color: #f3f3f3;
   border-right: 2px solid #ddd;
@@ -107,8 +108,7 @@ strong {
   gap: 12px;
 }
 
-.play-button,
-.menu-toggle {
+.play-button {
   background-color: #4596f1;
   color: #e9e8e8;
   font-size: 1.2rem;
@@ -124,8 +124,7 @@ strong {
   transition: background-color 0.3s ease;
 }
 
-.play-button:hover,
-.menu-toggle:hover {
+.play-button:hover {
   background-color: #e9e8e8;
   color: #4596f1;
 }
