@@ -144,7 +144,10 @@ strong {
 .player:hover {
   box-shadow: 0 2px 6px #000c1a;
 }
-
+/* desatizando o icone de menu ☰ */
+.menu-toggle {
+    display: none;
+  }
 /* Link para adicionar frases */
 .add_phrases {
   position: fixed;
