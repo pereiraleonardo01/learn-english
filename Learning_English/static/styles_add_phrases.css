@@ -187,3 +187,73 @@ input[type="radio"]:checked + .radio-button {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Responsividade para tablets e celulares */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .home {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .home a {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+
+  .input-panel,
+  .saved-panel {
+    width: 100%;
+    box-shadow: none;
+    padding: 15px;
+  }
+
+  .phrase-form input,
+  .phrase-form textarea {
+    font-size: 0.95rem;
+  }
+
+  .save-button {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .radio-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    gap: 15px;
+  }
+
+  .input-panel h2,
+  .saved-panel h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .phrase-form label {
+    font-size: 0.9rem;
+  }
+
+  .saved-list li {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .alert {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

@@ -47,6 +47,7 @@ strong {
 /* Painel esquerdo */
 .left-panel {
   flex: 2;
+  width: 85%;
   padding: 30px;
   background-color: #f3f3f3;
   border-right: 2px solid #ddd;
