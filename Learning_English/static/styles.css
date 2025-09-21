@@ -107,8 +107,7 @@ strong {
   gap: 12px;
 }
 
-.play-button,
-.menu-toggle {
+.play-button {
   background-color: #4596f1;
   color: #e9e8e8;
   font-size: 1.2rem;
@@ -124,8 +123,7 @@ strong {
   transition: background-color 0.3s ease;
 }
 
-.play-button:hover,
-.menu-toggle:hover {
+.play-button:hover {
   background-color: #e9e8e8;
   color: #4596f1;
 }
@@ -144,10 +142,7 @@ strong {
 .player:hover {
   box-shadow: 0 2px 6px #000c1a;
 }
-/* desatizando o icone de menu ☰ */
-.menu-toggle {
-    display: none;
-  }
+
 /* Link para adicionar frases */
 .add_phrases {
   position: fixed;
