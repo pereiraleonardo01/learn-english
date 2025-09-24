@@ -248,7 +248,7 @@ strong {
 
   .left-panel,
   .right-panel {
-    width: 90%;
+    width: 100%;
     padding: 20px;
     border: none;
     box-shadow: none;
@@ -285,7 +285,7 @@ strong {
   .left-panel,
   .right-panel {
     padding: 15px;
-    width: 90%;
+    width: 100%;
   }
 
   .word-title {
