@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frase estudada - Estudo de Inglês</title>
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-  <!-- botao home -->
-  <div class="home">
-    <a href="{% url 'home' %}">HOME</a>
-  </div>
+{% extends 'base.html' %}
+{% load static %}
 
+{% block title %}
+  Frase Estudada - Estudo de Inglês
+{% endblock %}
+
+{% block content %}
+  
   <div class="container">
     <!-- Área esquerda -->
     <section class="left-panel">
@@ -22,7 +16,7 @@
       <div class="phrase-block">
         <p class="phrase-label">Phrase Principal:</p>
         <div class="phrase">
-          <h3 id="phrase3" type="button" onclick="playAudio('phrase3', 'audioPlayer3')" name="phrase3" title="Clique para Carregar o áudio">{{ detailed.phrase }}</h3>
+          <h3 id="phrase3" onclick="playAudio('phrase3', 'audioPlayer3')" title="Clique para Carregar o áudio">{{ detailed.phrase }}</h3>
           <div class="bottons">
             <button class="play-button" id="playPauseBtn3" type="button" onclick="playAudio('phrase3', 'audioPlayer3')" title="Carregar áudio">&#9835;</button>
             <audio id="audioPlayer3" class="player" controls></audio>
@@ -66,10 +60,9 @@
     <section class="right-panel">
       <div class="explanation">
         <h2>Análise da frase</h2>
-        <label>
-          <div class="text-box" name="text-block" id="text-block-el"><strong>{{ detailed.phrase }}</strong><br><br>{{ detailed.explanation }}
-          </div>
-        </label>
+        <div class="text-box" id="text-block-el">
+          <strong>{{ detailed.phrase }}</strong><br><br>{{ detailed.explanation }}
+        </div>
       </div>
     </section>
   </div>
@@ -104,25 +97,6 @@
     }
   }
   
-
-    function toggleAudio(audio, btn) {
-      if (audio.paused || audio.ended) {
-        audio.play();
-        btn.textContent = "⏸";
-      } else {
-        audio.pause();
-        btn.textContent = "▶";
-      }
-
-      audio.onended = () => {
-        btn.textContent = "▶";
-      };
-
-      audio.onpause = () => {
-        btn.textContent = "▶";
-      };
-    }
-
     function getCookie(name) {
       let cookieValue = null;
       if (document.cookie && document.cookie !== '') {
@@ -137,8 +111,5 @@
       }
       return cookieValue;
     }
-</script>
-
-
-</body>
-</html>
+  </script>
+{% endblock %}

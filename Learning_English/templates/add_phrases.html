@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adicionar Frases - Estudo de Inglês</title>
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'styles_add_phrases.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Adicionar frases - Estudo de Inglês
+{% endblock %}
+
+{% block content %}
   <!-- ALERTA NO TOPO -->
   {% if messages %}
   <div class="alert-container">
@@ -17,10 +15,7 @@
   </div>
   {% endif %}
 
-  <!-- botao home -->
-  <div class="home">
-    <a href="{% url 'home' %}">HOME</a>
-  </div>
+  
   <div class="container">
     <!-- Painel de entrada -->
     <section class="input-panel">
@@ -57,19 +52,17 @@
       <h2>FRASES SALVAS</h2>
       <ul class="saved-list">
         {% for frase in latest_phrases %}
-        
+          <li>
             <a href="{% url 'detailed_phrase' word=frase.word.word slug=frase.slug phrase_id=frase.id %}">
-            <li>
               <strong>{{ frase.phrase }}</strong><br>
               <em>{{ frase.word.word }} ({{ frase.word.get_type_display }})</em><br>
               <small>{{ frase.explanation | truncatewords:20 }}</small>
-            </li>
-          </a>
+            </a>
+          </li>        
           {% empty %}
             <li>Nenhuma frase adicionada.</li>
         {% endfor %}
       </ul>
     </section>
   </div>
-</body>
-</html>
+{% endblock %}

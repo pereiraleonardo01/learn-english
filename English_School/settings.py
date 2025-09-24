@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,6 +77,13 @@ WSGI_APPLICATION = 'English_School.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -88,26 +94,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-# if os.getenv("USE_SQLITE", "True") == "True":
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#             'NAME': 'learn_english_db_ejqv',
-#             'USER': 'learn_english_db_ejqv_user',
-#             'PASSWORD': '2yPRacvBShxa0ghGYUrHxatbWLngE6OW',
-#             'HOST': 'dpg-d37j750gjchc73cb8seg-a.oregon-postgres.render.com',
-#             'PORT': '5432',
-#         }
-#     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
