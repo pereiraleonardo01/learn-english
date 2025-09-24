@@ -195,14 +195,14 @@ input[type="radio"]:checked + .radio-button {
 .phrase-box strong {
   font-size: 1rem;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .phrase-box em {
   color: #555;
   font-style: italic;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .phrase-box small {
