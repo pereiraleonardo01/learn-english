@@ -175,7 +175,7 @@ input[type="radio"]:checked + .radio-button {
   list-style: none;
 }
 
-.saved-list li {
+.saved-list li a {
   /* background-color: #eaeaea; */
   background-color: #f4f4f4;
   padding: 10px;
