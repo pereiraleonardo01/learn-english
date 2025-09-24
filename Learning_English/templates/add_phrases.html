@@ -52,15 +52,15 @@
       <h2>FRASES SALVAS</h2>
       <ul class="saved-list">
         {% for frase in latest_phrases %}
-          <li>
-            <a href="{% url 'detailed_phrase' word=frase.word.word slug=frase.slug phrase_id=frase.id %}">
-              <strong>{{ frase.phrase }}</strong><br>
-              <em>{{ frase.word.word }} ({{ frase.word.get_type_display }})</em><br>
-              <small>{{ frase.explanation | truncatewords:20 }}</small>
-            </a>
-          </li>        
+          <a href="{% url 'detailed_phrase' word=frase.word.word slug=frase.slug phrase_id=frase.id %}">
+              <div class="phrase-box">
+                <strong>{{ frase.phrase }}</strong><br>
+                <em>{{ frase.word.word }} ({{ frase.word.get_type_display }})</em><br>
+                <small>{{ frase.explanation | truncatewords:20 }}</small>
+              </div>
+            </a>       
           {% empty %}
-            <li>Nenhuma frase adicionada.</li>
+            <p class="no-phrases" >Nenhuma frase adicionada.</p>
         {% endfor %}
       </ul>
     </section>

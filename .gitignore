@@ -11,3 +11,6 @@ db.sqlite3
 
 # Arquivos do sistema
 .DS_Store
+
+# outros
+styles_add_phrases v2.css
