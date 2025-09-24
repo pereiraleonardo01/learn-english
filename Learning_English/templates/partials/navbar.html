@@ -1,4 +1,8 @@
-    <!-- Navbar superior -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Navbar superior -->
   <header class="navbar">
   <div class="logo">
     <a href="{% url 'home' %}">300 SIMPLE WORDS</a>
@@ -15,3 +19,4 @@
     </ul>
   </div>
   </header>
+{% endblock %}
