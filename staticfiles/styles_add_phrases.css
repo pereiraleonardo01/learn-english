@@ -1,21 +1,3 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
-  padding: 20px;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 /* Alertas */
 .alert-container {
   margin-bottom: 20px;
@@ -216,7 +198,7 @@ input[type="radio"]:checked + .radio-button {
   margin-top: 10px;
 }
 
-/* Responsividade para tablets e celulares */
+/* Responsividade */
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;

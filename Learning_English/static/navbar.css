@@ -1,17 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
-
 /* Navbar principal */
 nav {
   display: flex;
@@ -83,11 +69,14 @@ nav {
 }
 
 /* Responsividade com menu lateral */
-@media (max-width: 768px) {
+@media (max-width: 844px) {
   nav {
     justify-content: space-between;
   }
-
+  .logo {
+  font-size: 18px;
+  font-weight: bold;
+  }
   .nav-links {
     position: fixed;
     top: 77px;
@@ -106,16 +95,13 @@ nav {
     left: 0; /* colado à esquerda */
   }
 
-  .element_left {
-    margin-top: 25px;
-  }
-
   .element_left,
   .element_right {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
     list-style: none;
+    margin: 50px 0 20px 0;
   }
 
   .element_left li,
