@@ -16,7 +16,7 @@ body {
 nav {
   display: flex;
   align-items: center;
-  background-color: #2042b3;
+  background-color: #0077cc;
   padding: 20px 40px;
   position: relative;
   z-index: 1000;
@@ -50,14 +50,14 @@ nav {
 
 .element_left a,
 .element_right a {
-  color: rgb(223, 219, 219);
+  color: white;
   font-size: 18px;
   transition: color 0.3s ease;
 }
 
 .element_left a:hover,
 .element_right a:hover {
-  color: #423f3e;
+  color: #d0eaff;
 }
 
 .menu-toggle {
@@ -80,7 +80,7 @@ nav {
     left: -220px;
     height: calc(100vh - 77px);
     width: 220px;
-    background-color: #0942fd;
+    background-color: #0077cc;
     flex-direction: column;
     align-items: flex-start;
     transition: left 0.3s ease;
