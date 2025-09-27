@@ -1,10 +1,20 @@
+body {
+  margin: 0;
+  padding-top: 70px;
+}
+
 /* Navbar principal */
 nav {
   display: flex;
   align-items: center;
   background-color: #0077cc;
   padding: 20px 40px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  gap: 5px;
   z-index: 1000;
 }
 
@@ -13,7 +23,7 @@ nav {
   font-size: 24px;
   font-weight: bold;
   white-space: nowrap;
-  margin-right: 60px; /* espaçamento entre logo e menu */
+  margin-right: 80px; 
 }
 
 .nav-links {
@@ -51,6 +61,7 @@ nav {
   width: 0%;
   height: 2px;
   background-color: #d32f2f;
+  /* background-color: #0077cc; */
   transition: width 0.3s ease;
 }
 
@@ -65,34 +76,49 @@ nav {
   font-size: 28px;
   color: white;
   cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
   z-index: 1101;
 }
 
 /* Responsividade com menu lateral */
-@media (max-width: 844px) {
+@media (max-width: 948px) {
+  .logo a {
+  font-size: 18px;
+  
+  }
+  .element_left a,
+  .element_right a {
+  font-size: 16px;
+}
+}
+
+/* Responsividade com menu lateral */
+@media (max-width: 893px) {
   nav {
     justify-content: space-between;
   }
-  .logo {
+  .logo a {
   font-size: 18px;
   font-weight: bold;
   }
   .nav-links {
     position: fixed;
-    top: 77px;
+    top: 70px;
     left: -220px;
-    height: calc(100vh - 77px);
+    height: calc(100vh - 70px);
     width: 220px;
-    background-color: #0077cc;
+    background-color: #020747;
     flex-direction: column;
     align-items: flex-start;
     transition: left 0.3s ease;
-    z-index: 999;
+    z-index: 1100;
     padding-left: 40px;
   }
 
   .nav-links.active {
-    left: 0; /* colado à esquerda */
+    left: 0; 
   }
 
   .element_left,
@@ -113,6 +139,14 @@ nav {
   .element_right a {
     color: white;
     font-size: 18px;
+  }
+
+  /* Linha invisível por padrão */
+.element_left a::after,
+.element_right a::after {
+    /* background-color: #d32f2f; */
+    background-color: #0077cc;
+    transition: width 0.3s ease;
   }
 
   .menu-toggle {

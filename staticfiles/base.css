@@ -5,9 +5,11 @@
 }
 
 body {
+  margin: 0;
+  padding-top: 70px;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
-  padding: 20px;
+  background-color: #f3f3f3;
+  overflow-x: hidden;
 }
 
 a {
@@ -16,109 +18,4 @@ a {
 
 strong {
   font-size: 1.3rem;
-}
-
-/* Navbar container */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #0077cc;
-  padding: 15px 30px;
-  color: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Logo */
-.logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-}
-
-/* Navegação geral */
-.navegation {
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
-  margin-left: 40px;
-}
-
-/* Listas */
-.element_left,
-.element_right {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Alinhamento específico */
-.element_left {
-  justify-content: flex-start;
-}
-
-.element_right {
-  justify-content: flex-end;
-  margin-left: auto;
-}
-
-/* Links */
-.element_left li a,
-.element_right li a {
-  color: white;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.element_left li a:hover,
-.element_right li a:hover {
-  color: #d0eaff;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-  }
-
-  .logo {
-    margin-bottom: 10px;
-  }
-
-  .navegation {
-    flex-direction: column;
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .element_left,
-  .element_right {
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .element_right {
-    margin-left: 0;
-  }
-
-  .element_left li a,
-  .element_right li a {
-    font-size: 1rem;
-    padding: 8px 0;
-    display: block;
-    width: 100%;
-    color: white;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .element_left li a:hover,
-  .element_right li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
 }
