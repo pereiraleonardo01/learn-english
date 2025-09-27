@@ -9,16 +9,13 @@
     {% endblock %}
   </title>
   {% load static %}
+  <link rel="stylesheet" href="{% static 'navbar.css' %}">
   <link rel="stylesheet" href="{% static 'base.css' %}">
   <link rel="stylesheet" href="{% static 'styles.css' %}">
   <link rel="stylesheet" href="{% static 'styles_add_phrases.css' %}">
 </head>
 <body>
   {% include 'partials/navbar.html' %}
-    <!-- botao home -->
-  <!-- <div class="home">
-    <a href="{% url 'home' %}">HOME</a>
-  </div> -->
   <!-- Conteúdo principal -->
   <main>
     {% block content %}

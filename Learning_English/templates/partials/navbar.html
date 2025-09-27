@@ -1,17 +1,30 @@
 <!-- Navbar superior -->
-  <header class="navbar">
-  <div class="logo">
-    <a href="{% url 'home' %}">300 SIMPLE WORDS</a>
-  </div>
-  <div class="navegation">
-    <ul class="element_left">
-      <li>Phrases</li>
-      <li><a href="{% url 'add_word_phrases' %}">Add Phrases</a></li>
-      <li>Pesquisar</li>
-    </ul>
-    <ul class="element_right">
-      <li>Account</li>
-      <li>Logout</li>
-    </ul>
-  </div>
-  </header>
+    <nav>
+    <div class="logo">
+      <a href="{% url 'home' %}">300 SIMPLE WORDS</a>
+    </div>
+    
+
+    <div class="menu-toggle">&#9776;</div>
+
+    <div class="nav-links">
+      <ul class="element_left">
+        <li><a href="{% url 'add_word_phrases' %}">Add Phrases</a></li>
+        <li><a href="">Phrases</a></li>
+        <li><a href="">Search</a></li>
+      </ul>
+      <ul class="element_right">
+        <li><a href="">Account</a></li>
+        <li><a href="">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
