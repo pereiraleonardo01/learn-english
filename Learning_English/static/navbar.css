@@ -22,7 +22,7 @@ nav {
   z-index: 1000;
 }
 
-.logo {
+.logo a {
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -50,14 +50,28 @@ nav {
 
 .element_left a,
 .element_right a {
+  position: relative;
   color: white;
   font-size: 18px;
-  transition: color 0.3s ease;
 }
 
-.element_left a:hover,
-.element_right a:hover {
-  color: #d0eaff;
+/* Linha invisível por padrão */
+.element_left a::after,
+.element_right a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px; /* distância da linha abaixo do texto */
+  width: 0%;
+  height: 2px;
+  background-color: #d32f2f;
+  transition: width 0.3s ease;
+}
+
+/* Hover: linha cresce da esquerda para a direita */
+.element_left a:hover::after,
+.element_right a:hover::after {
+  width: 100%;
 }
 
 .menu-toggle {

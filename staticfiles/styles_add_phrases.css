@@ -1,5 +1,5 @@
 /* Reset básico */
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,7 +14,7 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-} */
+}
 
 /* Alertas */
 .alert-container {
