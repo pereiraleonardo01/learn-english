@@ -266,3 +266,31 @@
     height: 40px;
   }
 }
+
+@media (max-width: 600px) {
+  .explanation h2 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .text-box {
+    height: auto;
+    min-height: 300px;
+    max-height: none;
+    padding: 15px 20px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-indent: 15px;
+    overflow-y: visible;
+    white-space: normal;
+  }
+
+  .explanation textarea {
+    height: auto;
+    min-height: 300px;
+    padding: 20px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
