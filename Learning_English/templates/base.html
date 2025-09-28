@@ -10,12 +10,12 @@
   </title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'base.css' %}">
-  <link rel="stylesheet" href="{% static 'navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'navbar_dropdown.css' %}">
   <link rel="stylesheet" href="{% static 'styles.css' %}">
   <link rel="stylesheet" href="{% static 'styles_add_phrases.css' %}">
 </head>
 <body>
-  {% include 'partials/navbar.html' %}
+  {% include 'partials/navbar_dropdown.html' %}
   <!-- Conteúdo principal -->
   <main>
     {% block content %}
